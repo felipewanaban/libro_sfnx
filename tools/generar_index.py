@@ -13,7 +13,7 @@ for volumen in volumenes:
     capis = sorted([f for f in volumen.glob("*.html")])
     estructura[volumen.name] = capis
 
-# Escribir index.html con estilo cósmico incluido
+# Escribir index.html con estilo cósmico universal
 with open(base / "index.html", "w", encoding="utf-8") as f:
     f.write("""<!DOCTYPE html>
 <html lang="es">
@@ -22,51 +22,51 @@ with open(base / "index.html", "w", encoding="utf-8") as f:
   <title>SFNX – Enciclopedia Interactiva</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 2em;
-      background: radial-gradient(ellipse at center, #111 0%, #000 100%);
-      color: #e0e0ff;
-      background-image: url('https://raw.githubusercontent.com/felipewanaban/libro_sfnx/main/assets/img/stars_bg.jpg');
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://raw.githubusercontent.com/felipewanaban/libro_sfnx/main/assets/img/stars_bg.jpg') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
+      color: #00ffff;
     }
     h1 {
-      color: #6cf;
-      text-shadow: 0 0 10px #6cf;
       text-align: center;
+      color: #66ccff;
+      text-shadow: 0 0 18px #66ccff;
+      font-size: 2em;
     }
     h2 {
-      color: #fa7;
+      color: #ffa77b;
       margin-top: 40px;
-      border-bottom: 1px solid #555;
+      border-bottom: 1px solid #777;
+      font-size: 1.4em;
     }
     a {
-      color: #0ff;
+      color: #00ffff;
       display: block;
-      margin: 10px 0;
+      margin: 8px 0;
       font-weight: bold;
-      text-decoration: none;
       font-size: 1.2em;
+      text-decoration: none;
       transition: 0.3s;
     }
     a:hover {
-      color: #fff;
-      text-shadow: 0 0 8px #0ff;
+      color: #ffffff;
+      text-shadow: 0 0 12px #00ffff;
     }
     .wrapper {
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 2em;
-      border-radius: 12px;
-      max-width: 800px;
+      border-radius: 18px;
+      max-width: 850px;
       margin: auto;
-      box-shadow: 0 0 20px #000;
+      box-shadow: 0 0 40px #000;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <h1>📚 Sistema Formal Núcleo X – Atlas Interactivo</h1>
+    <h1>📘 Sistema Formal Núcleo X – SFNX</h1>
 """)
 
     # Agregar capítulos por volumen
