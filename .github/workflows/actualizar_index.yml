@@ -1,0 +1,27 @@
+name: Auto-Actualizar index.html
+
+on:
+  push:
+    paths:
+      - 'volumen_*/**.html'
+      - 'tools/generar_index.py'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Ejecutar script generador de index
+        run: python tools/generar_index.py
+
+      - name: Subir index.html actualizado
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: Actualización automática del índice 📘
