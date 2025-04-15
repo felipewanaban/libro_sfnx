@@ -9,9 +9,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Clonar el repositorio
         uses: actions/checkout@v3
+
+      - name: Esperar sincronización de archivos
+        run: sleep 10
 
       - name: Configurar Python
         uses: actions/setup-python@v4
@@ -24,4 +28,4 @@ jobs:
       - name: Subir index.html actualizado
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: Actualización automática del índice 📘
+          commit_message: "✅ Índice autoactualizado tras nuevos capítulos"
