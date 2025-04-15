@@ -9,12 +9,11 @@ volumenes = sorted([d for d in base.iterdir() if d.is_dir() and d.name.startswit
 
 # Diccionario por volumen
 estructura = {}
-
 for volumen in volumenes:
     capis = sorted([f for f in volumen.glob("*.html")])
     estructura[volumen.name] = capis
 
-# Estructura visual y cósmica
+# Escribir index.html con estilo cósmico incluido
 with open(base / "index.html", "w", encoding="utf-8") as f:
     f.write("""<!DOCTYPE html>
 <html lang="es">
@@ -35,6 +34,7 @@ with open(base / "index.html", "w", encoding="utf-8") as f:
     h1 {
       color: #6cf;
       text-shadow: 0 0 10px #6cf;
+      text-align: center;
     }
     h2 {
       color: #fa7;
@@ -44,27 +44,32 @@ with open(base / "index.html", "w", encoding="utf-8") as f:
     a {
       color: #0ff;
       display: block;
-      margin: 8px 0;
+      margin: 10px 0;
       font-weight: bold;
       text-decoration: none;
+      font-size: 1.2em;
       transition: 0.3s;
     }
     a:hover {
       color: #fff;
-      text-shadow: 0 0 10px #0ff;
+      text-shadow: 0 0 8px #0ff;
     }
     .wrapper {
       background-color: rgba(0,0,0,0.6);
       padding: 2em;
-      border-radius: 10px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: auto;
+      box-shadow: 0 0 20px #000;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <h1>📚 Sistema Formal Núcleo X – SFNX</h1>
+    <h1>📚 Sistema Formal Núcleo X – Atlas Interactivo</h1>
 """)
 
+    # Agregar capítulos por volumen
     for nombre_vol, archivos in estructura.items():
         titulo = nombre_vol.replace("_", " ").title()
         f.write(f"    <h2>{titulo}</h2>\n    <ul>\n")
@@ -77,4 +82,5 @@ with open(base / "index.html", "w", encoding="utf-8") as f:
     f.write("""
   </div>
 </body>
-</html>""")
+</html>
+""")
